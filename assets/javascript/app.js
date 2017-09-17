@@ -15,46 +15,39 @@ var selectedQuestions = ["1"];     //random selected questions from ranQuestions
 var selectedChoices = ["1"];       //Choices of random selected questions
 var selectedAnswers = [1];         //Answers of random selected questions
 var classInput = "ques";           //Class name for radio inputs for each question
-var audio = new Audio("soulgloextended.mp3");
-audio.play();
+//var audio = new Audio("soulgloextended.mp3");
+//audio.play();
 
 
-var quiz = {                // QUIZ
+// QUIZ
+var quiz = {                
 
-    ranQuestions: ["Movie this song is from\?",
-    "Who was too Legit to Quit\?", 
-    "Who sang Ice Ice Baby\?",
-    "Who Pitied the Fool\?",
-    "Who is the true Master of the Octagon\?",
-    "Which long-nosed fellow from Melmac lived with the Tanners\?",
-    "Name the shoes with the infamous pumps\?",
-    "Pachyderm that lived on Sesame Street\?",
-    "Which two characters had an Excellent Adventure\?",
-    "Who was Livin’ on a Prayer\?"
-    "Who’s Achy Breaky Heart somehow lead to the Wreaking Ball\?"
-    "The person Inigo Montoya had to find to get revenge\?"
+    ranQuestions: ['Movie this song is from\?','Who was too Legit to Quit\?',"Who sang Ice Ice Baby\?"
+    ,"Who Pitied the Fool\?","Who is the true Master of the Octagon\?","Which long-nosed fellow from Melmac lived with the Tanners\?"
+    ,"Name the shoes with the infamous pumps\?","Pachyderm that lived on Sesame Street\?","Which two characters had an Excellent Adventure\?",
+    "Who was Livin’ on a Prayer\?","Who’s Achy Breaky Heart somehow lead to the Wreaking Ball\?","The person Inigo Montoya had to find to get revenge\?",
     "Where was the Zoo that had Magic and Wonder waiting for you\?"],
 
+    //Answers
     ranAnswers: [
-      ["a. The Breakfast Club", "b.  Big Trouble in Little China", "c. Howard the Duck", "d. Coming to America"],
-      ["a. Doogie Howser", "b. The Little Engine that Could", "c.  MC Hammer", "d. Diana Ross and the Supremes"],
-      ["a. Queen", "b. Vanilla Ice", "c. The Muppets", "d. The Ice Queen"],
-      ["a. Mr. Miyagi", "b.  Rambo", "c. George Simmons", "d.  Mr. T"],
-      ["a. Hulk Hogan", "b.  Connor McGreggor", "c.  Chuck Norris", "d.  Floyd Meriwether"],
-      ["a. Uncle Jesse", "b. Alf", "c. Uncle Joey", "d.  The guy from America’s Home Videos",
-      ["a. LA Gear", "b. Cinderella", "c.  Yves Saint Laurent", "d.  Reebok"],
-      ["a. Big Bird", "b.  Oscar the Grouch", "c.  Snuffaluffagus", "d.  Elmo"],
-      ["a. The Olsen Twins", "b. Bill and Ted", "c.  Pee Wee Herman and Paul Reubens", "d. Mario and Luigi"],
-      ["a. Bon Jovi", "b.  Ozzy Osborn", "c. Nick Nolte", "d.  Gary Busey"],
-      ["a. That guy with the Tear in his Beer", "b.  John Belushi", "c.  Billy Ray Cyrus", "d. Dan Aykroyd"],
-      ["a. Andre the Giant", "b. The Dread Pirate Roberts", "c.  The Six Fingered Man", "d.  Yo Mamma"],
-      ["a. San Diego Zoo", "b. Sea World", "c. Bronx Zoo", "d. Zoobilee Zoo"],
-      ["a. Sho'nuff", "b. Bruce Lee", "c. Bruce Leroy", "d. Yo Mamma"]
+      ["The Breakfast Club","Big Trouble in Little China","Howard the Duck","Coming to America"],
+      ["Doogie Howser","The Little Engine that Could","MC Hammer","Diana Ross and the Supremes"],
+      ["Queen","Vanilla Ice","The Muppets","The Ice Queen"],
+      ["Mr. Miyagi","Rambo","George Simmons","Mr. T"],
+      ["Hulk Hogan","Connor McGreggor","Chuck Norris","Floyd Meriwether"],
+      ["Uncle Jesse","Alf","Uncle Joey","The guy from America’s Home Videos"],
+      ["LA Gear","Cinderella","Yves Saint Laurent","Reebok"],
+      ["Big Bird","Oscar the Grouch","Snuffaluffagus","Elmo"],
+      ["The Olsen Twins","Bill and Ted","Pee Wee Herman and Paul Reubens","Mario and Luigi"],
+      ["Bon Jovi","Ozzy Osborn","Nick Nolte","Gary Busey"],
+      ["That guy with the Tear in his Beer","John Belushi","Billy Ray Cyrus","Dan Aykroyd"],
+      ["Andre the Giant","The Dread Pirate Roberts","The Six Fingered Man","Yo Mamma"],
+      ["San Diego Zoo","Sea World","Bronx Zoo","Zoobilee Zoo"],
+      ["Sho'nuff","Bruce Lee","Bruce Leroy","Yo Mamma"]
     ],
-    answers: [3,2,1,3,2,1,3,2,1,0,2,2,3,2],   
+    answers: [3,2,1,3,2,1,3,2,1,0,2,2,3,2],    
 
-   
-    //Random Question Generator with input choices//
+    //Random Question Generator
       pickQuestion: function(){
           //creating forms and inputs for answers
           for (var i=0; i<10; i++){
@@ -68,14 +61,14 @@ var quiz = {                // QUIZ
               var form = $("<form>");
               form.insertAfter(que);
 
-              for (var j=0; j<10; j++){
+              for (var j=0; j<4; j++){
                 //generating radio type inputs with values and classes
                   var input = $('<input name = "choice"  class = ' +classInput+i.toString()+ ' type = "radio">'+'<span id="ans">'+this.ranAnswers[ran][j]+'</span></input>');
                       input.attr("value",this.ranAnswers[ran][j]);
 
                   form.append(input);
               }
-          //Deleting the selected question from array to prevent repeating same process for answer arrays//
+          //Prevent redundant questions
           selectedQuestions[i] = this.ranQuestions.splice(ran,1);
           selectedChoices[i]   = this.ranAnswers.splice(ran,1);
           selectedAnswers [i]  = this.answers.splice(ran,1);
@@ -109,7 +102,7 @@ function timer () {
 
       $("#countDown").html(count);
       count--;
-      //recursive function callin it self till time is up
+      //Time is up
       if (count < 0){
       clearTimeout(time);
       click();
@@ -128,18 +121,18 @@ function click(){
           var correctAnswers = 0;
           var incorrectAnswers = 0;
 
-          //Possible 10 questions and answers going through all answers. Number 10 picked for convinience. It can be any number depending on number of questions.
+          //Possible 10 questions and answers going through all answers. 
           for (var i=0; i<10; i++){
-              //Unanswered condition//
+              //Unanswered
               if(!$('.'+classInput+i.toString()).is(":checked")) {
                    numUnanswered++;
               }
-              //If the answer is correct or incorrect
+              //Correct or Incorrect answer
               else {
               $("."+classInput+i.toString()+":checked").val() === selectedChoices[i][0][selectedAnswers[i][0]] ? (correctAnswers++) : (incorrectAnswers++);
               }
           }
-          //Printing Results//
+          //Print Results
           $("#correct").html(correctAnswers);
           $("#incorrect").html(incorrectAnswers);
           $("#unAnswered").html(numUnanswered);
