@@ -13,7 +13,8 @@
 body {
     font-size: 25px;
     font-family: orbitron, sans-serif;
-    color: #0404A5;
+    font-weight: bold;
+    color: #070707;
     background-image: url("../images/cropped-ghetto-blaster-illustration-boombox-vector-graphic-42447675.jpg");
     background-repeat: no-repeat;
     background-size: cover;
