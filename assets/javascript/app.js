@@ -26,7 +26,7 @@ var quiz = {
     ,"Who Pitied the Fool\?","Who is the true Master of the Octagon\?","Which long-nosed fellow from Melmac lived with the Tanners\?"
     ,"Name the shoes with the infamous pumps\?","Pachyderm that lived on Sesame Street\?","Which two characters had an Excellent Adventure\?",
     "Who was Livin’ on a Prayer\?","Who’s Achy Breaky Heart somehow lead to the Wreaking Ball\?","The person Inigo Montoya had to find to get revenge\?",
-    "Where was the Zoo that had Magic and Wonder waiting for you\?"],
+    "Where was the Zoo that had Magic and Wonder waiting for you\?", "Who is the Master in 'The Last Dragon'\?"],
 
     //Answers
     ranAnswers: [
