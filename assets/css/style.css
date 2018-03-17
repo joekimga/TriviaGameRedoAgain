@@ -1,12 +1,13 @@
 .jumbotron {
   color: #EE0707;
-  font-size: 150%;
+  font-size: 230%;
   font-weight: bold;
   background-image: url("../images/n-80S-BOOM-BOX-628x314.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -21,4 +22,14 @@ body {
     align-items: center;
     text-align: center;
 
+}
+
+.time {
+  color: #EE0707;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#btnStart {
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
 }
