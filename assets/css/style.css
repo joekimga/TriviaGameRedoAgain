@@ -33,3 +33,20 @@ body {
 #btnStart {
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
 }
+
+#results {
+  color: #EE0707;  
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#greatScott {
+  color: #EE0707;  
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#header {
+  box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.5);  
+  text-shadow: 3px 3px #ffffff;
+}
